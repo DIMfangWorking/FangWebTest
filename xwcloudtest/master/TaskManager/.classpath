@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jedis"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/logback"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jackson"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jfreechart"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mongodb"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mybatis"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mysql"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ognl"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/RebbitMQ"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/slf4j"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring-amqp"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring-data-mongodb"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring-retry"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/dom4j"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Util"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/git"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/svn"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

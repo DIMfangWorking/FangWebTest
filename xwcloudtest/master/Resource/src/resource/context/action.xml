@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:repository="http://www.springframework.org/schema/data/repository"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/data/repository 
+	http://www.springframework.org/schema/data/repository/spring-repository.xsd
+	http://www.springframework.org/schema/data/mongo 
+	http://www.springframework.org/schema/data/mongo/spring-mongo.xsd"
+	default-lazy-init="false">
+	
+	<bean id="EIConfigAction" class="com.xinwei.cloud.test.Resource.action.impl.EIConfigAction" >
+		<property name="service" ref="EIConfigServices"/>
+	</bean>
+	
+	<bean id="ResourceAllocAction" class="com.xinwei.cloud.test.Resource.action.impl.ResourceAllocAction" >
+		<property name="service" ref="ResourceServices"/>
+	</bean>
+
+	<bean id="ResourceReleaseAction" class="com.xinwei.cloud.test.Resource.action.impl.ResourceReleaseAction" >
+		<property name="service" ref="ResourceServices"/>
+	</bean>
+
+	<bean id="SlaveOnlineAction" class="com.xinwei.cloud.test.Resource.action.impl.SlaveOnlineAction" >
+		<property name="service" ref="SlaveServices"/>
+	</bean>
+
+	<bean id="SlaveAction" class="com.xinwei.cloud.test.Resource.action.impl.SlaveBeatheartAction" >
+		<property name="service" ref="SlaveServices"/>
+	</bean>
+
+	<bean id="SlaveUeOnlineAction" class="com.xinwei.cloud.test.Resource.action.impl.SlaveUEOnlineAction" >
+		<property name="service" ref="SlaveUeServices"/>
+	</bean>
+
+	<bean id="SlaveUeReportAction" class="com.xinwei.cloud.test.Resource.action.impl.SlaveUEReportAction" >
+		<property name="service" ref="SlaveUeServices"/>
+	</bean>
+
+</beans>

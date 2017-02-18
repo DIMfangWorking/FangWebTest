@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:repository="http://www.springframework.org/schema/data/repository"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/data/repository 
+	http://www.springframework.org/schema/data/repository/spring-repository.xsd
+	http://www.springframework.org/schema/data/mongo 
+	http://www.springframework.org/schema/data/mongo/spring-mongo.xsd"
+	default-lazy-init="false">
+
+	<!--配置线程池-->
+	<bean id="ThreadPool" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="#{ConfigParser.config.thread.min}"/>
+		<property name="maxPoolSize" value="#{ConfigParser.config.thread.max}"/>
+		<property name="queueCapacity" value="100"/>
+		<property name="keepAliveSeconds" value="300"/>
+		<property name="rejectedExecutionHandler">
+			<bean class="java.util.concurrent.ThreadPoolExecutor$CallerRunsPolicy"/>
+		</property>
+	</bean>
+    
+	<!--配置对象池-->
+	<bean id="PoolTargetSource" class="org.springframework.aop.target.CommonsPoolTargetSource">
+		<property name="targetBeanName" value="InnerBusinessControl"/>
+		<property name="maxSize" value="20"/>
+	</bean>
+
+	<!-- 业务平台配置 -->
+	<bean id="Dispatch" class="com.xinwei.cloud.test.Resource.dispatch.Dispatch" scope="singleton">
+		<constructor-arg name="threadPool" ref="ThreadPool"/>
+		<constructor-arg name="poolTargetSource" ref="PoolTargetSource"/>
+		<property name="workQueuesRpcServer" ref="WorkQueuesRpcServer"/>
+	</bean>
+
+	<bean id="InnerBusinessControl" class="com.xinwei.cloud.test.Resource.dispatch.impl.InnerBusinessControl" scope="prototype">
+		<property name="normalConfig">
+			<map>
+				<entry key="alloc resource" value-ref="ResourceAction"/>
+				<entry key="release resource" value-ref="ResourceAction"/>
+				<entry key="online slave" value-ref="SlaveOnlineAction"/>
+				<entry key="beatheart slave" value-ref="SlaveBeatheartAction"/>
+				<entry key="online slaveue" value-ref="SlaveUeOnlineAction"/>
+				<entry key="beatheart slaveue" value-ref="SlaveUeReportAction"/>
+				<entry key="config ei" value-ref="EIConfigAction"/>
+			</map>
+		</property>
+	</bean>
+</beans>

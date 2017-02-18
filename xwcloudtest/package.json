@@ -1,0 +1,14 @@
+{
+  "name": "xwclondtest",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "main":"app.js",
+  "dependencies": {
+    "express": "4.13.*",
+    "body-parser": "1.13.*",
+    "ldapjs":"0.7.*"
+  }
+}

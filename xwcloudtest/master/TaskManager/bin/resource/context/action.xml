@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd"
+	default-lazy-init="false">
+
+	<bean id="CreateAutoTaskAction" class="com.xinwei.taskmanager.action.outter.CreateAutoTaskAction" >
+		<property name="" ref=""/>
+	</bean>
+	
+	<bean id="CreateTaskAction" class="com.xinwei.taskmanager.action.outter.CreateTaskAction" >
+		<property name="facadeTaskService" ref="FacadeCreateTaskService"/>
+	</bean>
+	
+	<bean id="RerunAutoTaskAction" class="com.xinwei.taskmanager.action.outter.RerunAutoTaskAction" >
+		<property name="" ref=""/>
+	</bean>
+	
+	<bean id="TaskReportAction" class="com.xinwei.taskmanager.action.outter.TaskReportAction" >
+		<property name="taskRecordService" ref="TaskRecordService"/>
+	</bean>
+	
+	<bean id="GetTaskAction" class="com.xinwei.taskmanager.action.outter.TaskResultAction" >
+		<property name="" ref=""/>
+	</bean>
+
+</beans>

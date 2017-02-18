@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:repository="http://www.springframework.org/schema/data/repository"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/data/repository 
+	http://www.springframework.org/schema/data/repository/spring-repository.xsd
+	http://www.springframework.org/schema/data/mongo 
+	http://www.springframework.org/schema/data/mongo/spring-mongo.xsd"
+	default-lazy-init="false">
+
+	<bean id="EIConfigDao" class="com.xinwei.cloud.test.Resource.dao.impl.EIConfigDaoImpl">
+		<property name="mongodb" ref="MongoTemplate" />
+	</bean>
+
+	<bean id="ResourceDao" class="com.xinwei.cloud.test.Resource.dao.impl.ResourceDaoImpl">
+		<property name="mongodb" ref="MongoTemplate" />
+	</bean>
+
+	<bean id="SlaveDao" class="com.xinwei.cloud.test.Resource.dao.impl.SlaveDaoImpl">
+		<property name="mongodb" ref="MongoTemplate" />
+		<property name="Redis0Template" ref="Redis0Template" />
+		<property name="Redis1Template" ref="Redis1Template" />
+		<property name="Redis2Template" ref="Redis2Template" />
+	</bean>
+
+	<bean id="SlaveUEDao" class="com.xinwei.cloud.test.Resource.dao.impl.SlaveUEDaoImpl">
+		<property name="mongodb" ref="MongoTemplate" />
+		<property name="Redis0Template" ref="Redis0Template" />
+		<property name="Redis1Template" ref="Redis1Template" />
+		<property name="Redis2Template" ref="Redis2Template" />
+	</bean>
+
+</beans>

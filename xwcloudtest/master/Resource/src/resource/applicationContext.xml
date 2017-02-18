@@ -1,0 +1,29 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:repository="http://www.springframework.org/schema/data/repository"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/data/repository 
+	http://www.springframework.org/schema/data/repository/spring-repository.xsd
+	http://www.springframework.org/schema/data/mongo 
+	http://www.springframework.org/schema/data/mongo/spring-mongo.xsd"
+	default-lazy-init="false">
+	<context:component-scan base-package="com.xinwei" />
+
+	<!-- util配置 -->
+	<import resource="classpath:resource/context/util.xml"/>
+	<!-- 数据配置 -->
+	<import resource="classpath:resource/context/data.xml"/>
+	<!-- 平台配置 -->
+	<import resource="classpath:resource/context/platform.xml"/>
+	<!-- Action配置 -->
+	<import resource="classpath:resource/context/action.xml"/>
+	<!-- services配置 -->
+	<import resource="classpath:resource/context/service.xml"/>
+	<!-- dao配置 -->
+	<import resource="classpath:resource/context/dao.xml"/>
+</beans>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:repository="http://www.springframework.org/schema/data/repository"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/data/repository 
+	http://www.springframework.org/schema/data/repository/spring-repository.xsd
+	http://www.springframework.org/schema/data/mongo 
+	http://www.springframework.org/schema/data/mongo/spring-mongo.xsd"
+	default-lazy-init="false">
+    <!-- Mongo数据库配置 -->
+	<mongo:mongo host="#{ConfigParser.config.resource.database.host}" port="#{ConfigParser.config.resource.database.port}" />
+
+	<bean id="MongoUserCredentials" class="org.springframework.data.authentication.UserCredentials">
+		<constructor-arg name="username" value="#{ConfigParser.config.resource.database.user}" />
+		<constructor-arg name="password" value="#{ConfigParser.config.resource.database.password}" />
+	</bean>
+
+	<bean id="MongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg ref="mongo" />
+		<constructor-arg value="#{ConfigParser.config.resource.database.database}" />
+		<constructor-arg ref="MongoUserCredentials" />
+	</bean>
+		
+	<!-- 缓存配置 -->
+	<bean id="JedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<!--property name="maxActive" value="20" /-->
+		<property name="maxIdle" value="20" />
+		<!--property name="maxWait" value="20" /-->
+		<property name="testOnBorrow" value="true" />
+	</bean>
+	
+	<bean id="Jedis0ConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="usePool" value="true"/>
+		<property name="hostName" value="#{ConfigParser.config.resource.cache.host}"/>
+		<property name="port" value="#{ConfigParser.config.resource.cache.port}"/>
+		<!--property name="password" value="true"/-->
+		<property name="timeout" value="2000"/>
+		<property name="database" value="0"/>
+		<constructor-arg index="0" ref="JedisPoolConfig"/>
+	</bean>
+
+	<bean id="Jedis1ConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="usePool" value="true"/>
+		<property name="hostName" value="#{ConfigParser.config.resource.cache.host}"/>
+		<property name="port" value="#{ConfigParser.config.resource.cache.port}"/>
+		<!--property name="password" value="true"/-->
+		<property name="timeout" value="2000"/>
+		<property name="database" value="1"/>
+		<constructor-arg index="0" ref="JedisPoolConfig"/>
+	</bean>
+	
+	<bean id="Jedis2ConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="usePool" value="true"/>
+		<property name="hostName" value="#{ConfigParser.config.resource.cache.host}"/>
+		<property name="port" value="#{ConfigParser.config.resource.cache.port}"/>
+		<!--property name="password" value="true"/-->
+		<property name="timeout" value="2000"/>
+		<property name="database" value="2"/>
+		<constructor-arg index="0" ref="JedisPoolConfig"/>
+	</bean>
+
+	<bean id="Redis0Template" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="Jedis0ConnectionFactory"/>
+		<property name="keySerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+		<property name="valueSerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+		<property name="hashKeySerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+		<property name="hashValueSerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+	</bean> 
+
+	<bean id="Redis1Template" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="Jedis1ConnectionFactory"/>
+		<property name="keySerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+		<property name="valueSerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+		<property name="hashKeySerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+		<property name="hashValueSerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+	</bean>
+		<bean id="Redis2Template" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="Jedis2ConnectionFactory"/>
+		<property name="keySerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+		<property name="valueSerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+		<property name="hashKeySerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+		<property name="hashValueSerializer">
+			<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+		</property>
+	</bean>
+</beans>

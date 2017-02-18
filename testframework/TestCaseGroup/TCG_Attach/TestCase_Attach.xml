@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TestCase>
+  <SupportEnvironment>0</SupportEnvironment>
+  <AtomAction name="CheckCellStatus">
+    <Property name="Delay" value="20"/>
+    <Property name="EnbID" value="1"/>
+    <Property name="CellID" value="253"/>
+    <Property name="ExpectResult" value="0"/>
+  </AtomAction>
+  <AtomAction name="AddUE">
+    <Property name="Delay" value="20"/>
+    <Property name="UEGroupID" value="1"/>
+    <Property name="CellID" value="253"/>
+    <Property name="EnbType" value="0"/>
+    <Property name="UENum" value="1"/>
+  </AtomAction>
+  <AtomAction name="CheckUECnntState">
+    <Property name="Delay" value="20"/>
+    <Property name="UEGroupID" value="1"/>
+    <Property name="ExpectResult" value="0"/>
+  </AtomAction>
+  <AtomAction name="ULPing">
+    <Property name="Delay" value="20"/>
+    <Property name="UEGroupID" value="1"/>
+    <Property name="PDNIP" value="192.168.4.2"/>
+    <Property name="PacketLen" value="10"/>
+    <Property name="Duration" value="10"/>
+    <Property name="LchNum" value="3"/>
+  </AtomAction>
+  <AtomAction name="CheckPingResult">
+    <Property name="Delay" value="20"/>
+    <Property name="UEGroupID" value="1"/>
+    <Property name="ExpectResult" value="0"/>
+  </AtomAction>
+  <AtomAction name="DelUEGroup">
+    <Property name="Delay" value="1"/>
+    <Property name="UEGroupID" value="1"/>
+    <Property name="UENum" value="1"/>
+  </AtomAction>
+</TestCase>

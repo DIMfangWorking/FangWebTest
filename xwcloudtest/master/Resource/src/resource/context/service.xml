@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:repository="http://www.springframework.org/schema/data/repository"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/data/repository 
+	http://www.springframework.org/schema/data/repository/spring-repository.xsd
+	http://www.springframework.org/schema/data/mongo 
+	http://www.springframework.org/schema/data/mongo/spring-mongo.xsd"
+	default-lazy-init="false">
+
+	<bean id="EIConfigServices" class="com.xinwei.cloud.test.Resource.service.impl.concrete.EIConfigServices" >
+	    <property name="dao" ref="EIConfigDao" />
+	</bean>
+	
+	<bean id="ResourceServices" class="com.xinwei.cloud.test.Resource.service.impl.concrete.ResourceServices" >
+	    <property name="dao" ref="ResourceDao" />
+	</bean>
+	
+	<bean id="SlaveServices" class="com.xinwei.cloud.test.Resource.service.impl.concrete.SlaveServices" >
+	    <property name="dao" ref="SlaveDao" />
+	</bean>
+	
+	<bean id="SlaveUeServices" class="com.xinwei.cloud.test.Resource.service.impl.concrete.SlaveUEServices" >
+	    <property name="dao" ref="SlaveUEDao" />
+	</bean>
+	
+</beans>

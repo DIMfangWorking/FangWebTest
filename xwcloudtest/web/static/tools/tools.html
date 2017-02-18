@@ -1,0 +1,74 @@
+﻿<html>
+<head>
+    <title>json request tools</title>
+    <link rel="stylesheet" type="text/css" href="tools.css" />
+
+    <script type="text/javascript" src="jquery.min.js" ></script>
+
+    <script type="text/javascript" src="tools.js" ></script>
+
+    <style type="text/css">
+        body{
+            width:700px;
+            border-style: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        textarea{
+            width:600px;
+            padding:4px 7px;
+            border:1px solid #ccc;
+            border-radius:4px;
+            background:#fff;
+            color:#333;
+            margin-bottom:7px;
+        }
+
+        #url{
+            width:400px;
+            padding:4px 7px;
+            border:1px solid #ccc;
+            border-radius:4px;
+            background:#fff;
+            color:#333;
+            margin-bottom:7px;
+        }
+
+        #method {
+            width:80px;
+            padding:4px 7px;
+            border:1px solid #ccc;
+            border-radius:4px;
+            background:#fff;
+            color:#333;
+            margin-bottom:7px;
+        }
+    </style>
+</head>
+
+<body>
+  <h1>JSON request tools</h1>
+  <from>
+      URL:<input id="url" type="text" rows="1" />
+      method:<select id="method" type="text" rows="1">
+          <option value="GET">GET</option>
+          <option value="POST">POST</option>
+          <option value="PUT">PUT</option>
+          <option value="DELETE">DELETE</option>
+      </select>
+      <textarea id="data" rows="12"></textarea>
+      <br/>
+      Data format:<select id="type" type="text" rows="1">
+          <option value="JSON">JSON</option>
+          <option value="URLENCODED">URLENCODED</option>
+          <option value="XML">XML</option>
+          <option value="DATA">DATA</option>
+      </select>
+      <button id="request">请求</button>
+  </from>
+  <br/>
+  <br/>
+  <textarea id="result" rows="12" contenteditable="false"></textarea>
+</body>
+</html>

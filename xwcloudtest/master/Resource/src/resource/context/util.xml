@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:repository="http://www.springframework.org/schema/data/repository"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/data/repository 
+	http://www.springframework.org/schema/data/repository/spring-repository.xsd
+	http://www.springframework.org/schema/data/mongo 
+	http://www.springframework.org/schema/data/mongo/spring-mongo.xsd"
+	default-lazy-init="false">
+
+	<!-- 日志加载 -->
+	<bean name="AutowiredLoggerPostProcessor" class="com.xinwei.logger.AutowiredLoggerPostProcessor"/>
+
+	<bean id="ConfigParser" class="com.xinwei.uem.util.ConfigParser"
+		scope="singleton">
+		<constructor-arg name="configFileName" value="resource-config.xml" />
+	</bean>
+
+	<!-- 消息队列配置 -->	
+	<bean id="RabbitConnectFactory" class="com.rabbitmq.client.ConnectionFactory">
+		<property name="host" value="#{ConfigParser.config.resource.commitue.host}"/>
+		<property name="port" value="#{ConfigParser.config.resource.commitue.port}"/>
+		<property name="username" value="#{ConfigParser.config.resource.commitue.user}"/>
+		<property name="password" value="#{ConfigParser.config.resource.commitue.password}"/>
+		<property name="automaticRecoveryEnabled" value="true"/>
+		<property name="virtualHost" value="/"/>
+	</bean>
+
+	<bean id="RabbitConnect" factory-bean="RabbitConnectFactory" factory-method="newConnection"/>
+
+	<bean id="RabbitChannel" factory-bean="RabbitConnect" factory-method="createChannel"/>
+
+	<bean id="WorkQueuesRpcServer" class="com.xinwei.uem.util.workqueue.WorkQueuesRpcServer" >
+		<constructor-arg name="channel" ref="RabbitChannel" />
+		<constructor-arg name="queueName" value="resource" />
+		<constructor-arg name="complicatingNum" value="15" />
+	</bean>
+
+	<bean id="RPCClient" class="com.xinwei.uem.util.RPCClient" scope="prototype">
+		<constructor-arg name="channel" ref="RabbitChannel" />
+	</bean>
+
+</beans>

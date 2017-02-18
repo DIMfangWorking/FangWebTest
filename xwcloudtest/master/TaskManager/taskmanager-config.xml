@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+	<thread min="10" max="15" />
+
+	<resource>
+		<mq host="172.31.3.155" user="xinwei" passwd="123456" />
+		<commitue type="rebbitmq" host="172.31.3.155" port="5672"
+			user="xinwei" password="123456" />
+		<cache type="redis" host="172.31.3.155" port="6379" password="" />
+		<mongo host="172.31.4.7" port="27017" db="xwcloudtest" user="xinwei" passwd="123456"/>
+	</resource>
+</services>

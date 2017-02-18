@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd"
+	default-lazy-init="false">
+
+	<bean id="ResourceDao" class="com.xinwei.taskmanager.dao.impl.ResourceDaoImpl">
+		<property name="MongoTemplate" ref="MongoTemplate" />
+	</bean>
+	
+	<bean id="CIConfigDao" class="com.xinwei.taskmanager.dao.impl.CIConfigDaoImpl">
+		<property name="MongoTemplate" ref="MongoTemplate" />
+	</bean>
+	
+	<bean id="EmailSeverConfigDao" class="com.xinwei.taskmanager.dao.impl.EmailSeverConfigDaoImpl">
+		<property name="MongoTemplate" ref="MongoTemplate" />
+	</bean>
+	
+	<bean id="KeyWordDao" class="com.xinwei.taskmanager.dao.impl.KeyWordDaoImpl">
+		<property name="MongoTemplate" ref="MongoTemplate" />
+	</bean>
+	
+	<bean id="TaskRecordDao" class="com.xinwei.taskmanager.dao.impl.TaskRecordDaoImpl">
+		<property name="MongoTemplate" ref="MongoTemplate" />
+	</bean>
+	
+	<bean id="TestCaseDao" class="com.xinwei.taskmanager.dao.impl.TestCaseDaoImpl">
+		<property name="MongoTemplate" ref="MongoTemplate" />
+	</bean>
+	
+	<bean id="TestGroupDao" class="com.xinwei.taskmanager.dao.impl.TestGroupDaoImpl">
+		<property name="MongoTemplate" ref="MongoTemplate" />
+	</bean>
+	<bean id="EIDetailedDao" class="com.xinwei.taskmanager.dao.impl.EIDetailedDaoImpl">
+		<property name="MongoTemplate" ref="MongoTemplate" />
+	</bean>
+	<bean id="CacheDao" class="com.xinwei.taskmanager.dao.impl.CacheDaoImpl" >
+		<property name="redis0Template" ref="Redis0Template" />
+		<property name="redis2Template" ref="Redis2Template" />
+	</bean>
+	
+	<bean id="RabbitSyncCallDao" class="com.xinwei.uem.ue.manage.dao.impl.RabbitSyncCall" >
+		<constructor-arg name="rpcClient" ref="RPCClient" />
+	</bean>
+</beans>

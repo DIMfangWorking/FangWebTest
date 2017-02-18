@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>信威云测试平台</title>
+  <link rel="stylesheet" href='css/bootstrap.min.css'>
+  <link rel="stylesheet" href='css/jquery-ui.min.css'>
+  <link rel="stylesheet" href='css/bootstrap-table.css'>
+  <link rel="stylesheet" href="css/style.css" media="screen">
+  <link rel="stylesheet" href="css/jsgrid-theme.min.css" media="screen">
+
+  <script src="js/lib/require.js"></script>
+  <script>
+    requirejs(['./js/commoncfg'], function (common) {
+            requirejs(['app/UserManage']);
+    });
+  </script>
+  <script>
+      function actionFormatter(value) {
+          return [
+              '<a class="update jsgrid" href="javascript:" title="Update Item"><input class="jsgrid-button jsgrid-edit-button" type="button" title="Edit"></a>',
+              '<a class="remove jsgrid" href="javascript:" title="Delete Item"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Remove"></a>'
+          ].join('');
+      }
+  </script>
+</head>
+
+<body class="UserManage">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-inverse" role="navigation">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="homepage.html">CloudTestPlatform</a>
+          </div>
+          <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="LogoutPanel">
+                <span></span>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" id="logout">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div>
+            <ul class="nav navbar-nav">
+              <li><a href="homepage.html">首页</a></li>
+              <li><a href="TestCaseManage.html">测试用例管理</a></li>
+              <li><a href="RealTimeInfo.html">小区信息</a></li>
+            </ul>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+      <div class="row" id="content">
+          <div class="col-md-3">
+              <div class="panel-group" id="panel_TaskList">
+                  <div class="panel panel-default" style="display: none" id="panel_module">
+                      <div class="panel-heading">
+                          <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#panel_TaskList"
+                                 href="#panel_TaskItem_1">
+                                  任务1</a>
+                              <span class="badge badge-inverse pull-right">执行中</span>
+                          </h4>
+                      </div>
+                      <div id="panel_TaskItem_1" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              正在执行中
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-9">
+              <p class="toolbar">
+                  <a class="create btn btn-default jsgrid" href="javascript:" id="CreateUser">
+                      <input class="jsgrid-button jsgrid-insert-button" type="button" title="Add">
+                  </a>
+              </p>
+              <table class="table table-striped table-hover" id="UsrTable"  data-toggle="table" data-click-to-select="true"
+                     data-single-select="true"  data-search="true" data-unique-id="ID" data-toolbar=".toolbar"
+                     data-pagination="true" data-page-size="10" data-pagination-first-text="First"
+                     data-pagination-pre-text="Previous" data-pagination-next-text="Next"
+                     data-pagination-last-text="Last">
+                  <thead>
+                  <tr>
+                      <th data-field="state" data-radio="true" data-align="center"></th>
+                      <th data-field="ID" data-visible="false">ID</th>
+                      <th data-field="Name" data-align="center">Name</th>
+                      <th data-field="Email" data-align="center">Email</th>
+                      <th data-field="action"
+                          data-align="center"
+                          data-formatter="actionFormatter"
+                          data-events="actionEvents">Action</th>
+                  </tr>
+                  </thead>
+              </table>
+              <div class="modal fade" id="UseCfgModal" role="dialog" aria-labelledby="TestCaseModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                  ×
+                              </button>
+                              <h4 class="modal-title" id="UserModalTitle">
+                              </h4>
+                          </div>
+                          <div class="modal-body">
+                              <form class="form-horizontal" role="form" id="UserInfo">
+                                  <div class="form-group">
+                                      <label for="username" class="col-sm-3 control-label">用户名</label>
+                                      <div class="col-sm-5">
+                                          <input type="text" class="form-control" name="username" id="username" placeholder="请输入用户名">
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="password" class="col-sm-3 control-label">密码</label>
+                                      <div class="col-sm-5">
+                                          <input type="password" class="form-control" name="password" id="password" placeholder="请输入密码">
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="confirm_password" class="col-sm-3 control-label">确认密码</label>
+                                      <div class="col-sm-5">
+                                          <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="确认密码">
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="email" class="col-sm-3 control-label">邮箱</label>
+                                      <div class="col-sm-5">
+                                          <input type="text" class="form-control" name="email" id="email" placeholder="请输入邮箱地址">
+                                      </div>
+                                  </div>
+                              </form>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">
+                                  关闭
+                              </button>
+                              <button type="submit" class="btn btn-primary" id="SavCfg">
+                                  提交
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+
+      </div>
+
+  </div>
+
+
+  
+       
+</body>
+</html>

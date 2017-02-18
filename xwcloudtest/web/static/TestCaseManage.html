@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>信威云测试平台</title>
+  <link rel="stylesheet" href='css/bootstrap.min.css'>
+  <link rel="stylesheet" href='css/jquery-ui.min.css'>
+  <link rel="stylesheet" href='css/bootstrap-table.css'>
+  <link rel="stylesheet" href="css/style.css" media="screen">
+  <link rel="stylesheet" href="css/jsgrid-theme.min.css" media="screen">
+  <link rel="stylesheet" href='css/font-awesome.css'>
+
+  <script src="js/lib/require.js"></script>
+  <script>
+    requirejs(['./js/commoncfg'], function(common) {
+        requirejs(['app/TestCaseManage']);
+    });
+  </script>
+  <script>
+      function actionFormatter(value) {
+          return [
+              '<a class="update jsgrid" href="javascript:" title="Update Item"><input class="jsgrid-button jsgrid-edit-button" type="button" title="Edit"></a>',
+              '<a class="remove jsgrid" href="javascript:" title="Delete Item"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Remove"></a>'
+          ].join('');
+      }
+  </script>
+</head>
+
+<body class="TestCaseGrp">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-inverse" role="navigation">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="homepage.html">CloudTestPlatform</a>
+          </div>
+          <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="LogoutPanel">
+                <span></span>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" id="logout">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div>
+            <ul class="nav navbar-nav">
+              <li><a href="homepage.html">首页</a></li>
+              <li class="active"><a href="TestCaseManage.html">测试用例管理</a></li>
+              <li><a href="RealTimeInfo.html">小区信息</a></li>
+              <li><a href="SystemManage.html">系统配置</a></li>
+            </ul>
+
+          </div>
+        </nav>
+
+      </div>
+    </div>
+      <div class="row" id="content">
+          <div class="col-md-12">
+              <ul id="TestCaseManageTabHomepage" class="nav nav-tabs">
+                  <li class="" id="Atom"><a href="#AtomContent" data-toggle="tab">原子操作</a></li>
+                  <li id="Component"><a href="#ComponentContent" data-toggle="tab">组件</a></li>
+                  <li id="TestCase"><a href="#TestCaseContent" data-toggle="tab">测试用例</a></li>
+                  <li id="TestCaseGrp"><a href="#TestCaseGrpContent" data-toggle="tab">测试用例组</a></li>
+                  <li class="pull-right">
+                      <a class="create btn btn-default jsgrid" href="javascript:" id="Create">
+                          <input class="jsgrid-button jsgrid-insert-button" type="button" title="创建">
+                      </a>
+                  </li>
+              </ul>
+              <div id="TestCaseManageContent" class="tab-content">
+                  <div class="tab-pane fade in active" id="AtomContent">
+                      <table id="AtomTable"
+                             data-toggle="table"
+                             data-search="true"
+                             data-pagination="true"
+                             data-unique-id="ID"
+                             data-page-size="10"
+                             data-pagination-first-text="First"
+                             data-pagination-pre-text="Previous"
+                             data-pagination-next-text="Next"
+                             data-pagination-last-text="Last">
+                          <thead>
+                          <tr>
+                              <th data-field="ID">ID</th>
+                              <th data-field="RemoteID" data-visible="false"></th>
+                              <th data-field="Name">Name</th>
+                              <th data-field="Creator">Creator</th>
+                              <th data-field="Type">Type</th>
+                          </tr>
+                          </thead>
+                          <tbody></tbody>
+                          <tfoot></tfoot>
+                      </table>
+                  </div>
+                  <div class="tab-pane fade" id="ComponentContent">
+                      <table class="table table-striped table-hover" id="ComponentTable" data-toggle="table"
+                             data-detail-view="true"
+                             data-pagination="true"
+                             data-search="true"
+                             data-unique-id="ID"
+                             data-page-size="10"
+                             data-pagination-first-text="First"
+                             data-pagination-pre-text="Previous"
+                             data-pagination-next-text="Next"
+                             data-pagination-last-text="Last">
+                          <thead>
+                          <tr>
+                              <th data-field="ID">ID</th>
+                              <th data-field="RemoteID" data-visible="false"></th>
+                              <th data-field="Name">Name</th>
+                              <th data-field="Creator">Creator</th>
+                              <th data-field="Type">Type</th>
+                              <th data-field="action"
+                                  data-align="center"
+                                  data-formatter="actionFormatter"
+                                  data-events="actionEvents">Action</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+
+                          </tbody>
+                          <tfoot>
+
+                          </tfoot>
+                      </table>
+                  </div>
+                  <div class="tab-pane fade" id="TestCaseContent">
+                      <table class="table table-striped table-hover" id="TestCaseTable" data-toggle="table"
+                             data-pagination="true"
+                             data-detail-view="true"
+                             data-search="true"
+                             data-unique-id="ID"
+                             data-page-size="10"
+                             data-pagination-first-text="First"
+                             data-pagination-pre-text="Previous"
+                             data-pagination-next-text="Next"
+                             data-pagination-last-text="Last">
+                          <thead>
+                          <tr>
+                              <th data-field="ID">ID</th>
+                              <th data-field="RemoteID" data-visible="false"></th>
+                              <th data-field="Name">Name</th>
+                              <th data-field="Creator">Creator</th>
+                              <th data-field="Type">Type</th>
+                              <th data-field="action"
+                                  data-align="center"
+                                  data-formatter="actionFormatter"
+                                  data-events="actionEvents">Action</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+
+                          </tbody>
+                          <tfoot>
+
+                          </tfoot>
+                      </table>
+                  </div>
+                  <div class="tab-pane fade" id="TestCaseGrpContent">
+                    <table class="table table-striped table-hover" id="TestCaseGrpTable" data-toggle="table"
+                           data-pagination="true"
+                           data-detail-view="true"
+                           data-search="true"
+                           data-unique-id="ID"
+                           data-page-size="10"
+                           data-pagination-first-text="First"
+                           data-pagination-pre-text="Previous"
+                           data-pagination-next-text="Next"
+                           data-pagination-last-text="Last">
+                      <thead>
+                      <tr>
+                          <th data-field="ID">ID</th>
+                          <th data-field="RemoteID" data-visible="false"></th>
+                          <th data-field="Name">Name</th>
+                          <th data-field="Creator">Creator</th>
+                          <th data-field="Type">Type</th>
+                          <th data-field="action"
+                              data-align="center"
+                              data-formatter="actionFormatter"
+                              data-events="actionEvents">Action</th>
+                      </tr>
+                      </thead>
+                      <tbody></tbody><tfoot></tfoot>
+                  </table>
+                  </div>
+              </div>
+
+
+
+          </div>
+
+
+      </div>
+
+  </div>
+
+
+  
+       
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>信威云测试平台</title>
+    <link rel="stylesheet" href='css/bootstrap.min.css'>
+    <link rel="stylesheet" href='css/jquery-ui.min.css'>
+    <link rel="stylesheet" href="css/style.css" media="screen">
+    <link rel="stylesheet" href='css/bootstrap-table.css'>
+    <link rel="stylesheet" href='css/jsgrid.min.css'>
+    <link rel="stylesheet" href='css/jsgrid-theme.min.css'>
+    <link rel="stylesheet" href='css/font-awesome.css'>
+    <script src="js/lib/require.js"></script>
+    <script>
+        requirejs(['./js/commoncfg'], function (common) {
+            requirejs(['app/homepage']);
+        });
+    </script>
+
+</head>
+
+<body class="home-page">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="homepage.html">CloudTestPlatform</a>
+                </div>
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="LogoutPanel">
+                            <span></span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" id="logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="homepage.html">首页</a></li>
+                        <li><a href="TestCaseManage.html">测试用例管理</a></li>
+                        <li><a href="RealTimeInfo.html">小区信息</a></li>
+                        <li><a href="SystemManage.html">系统配置</a></li>
+                    </ul>
+
+                </div>
+            </nav>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ul id="ResTab" class="nav nav-tabs">
+                <li><a href="#CIResult" data-toggle="tab">CI</a></li>
+                <li><a href="#Realres_list" data-toggle="tab">真实资源</a></li>
+                <li><a href="#Simres_list" data-toggle="tab">模拟资源</a></li>
+
+            </ul>
+            <div id="ResTabContent" class="tab-content">
+                <div class="tab-pane fade" id="Simres_list">
+                    <table class="table" id="Simres_table">
+                        <thead>
+                        <tr>
+                            <th data-field="ID" data-align="center">ID</th>
+                            <th data-field="Name" data-align="center">Name</th>
+                            <th data-field="Cfg" data-align="center">Config</th>
+                            <th data-field="IP" data-align="center">AgentIP</th>
+                            <th data-field="Status" data-align="center">Status</th>
+                            <th data-field="Action" data-align="center">Action</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="Realres_list">
+                    <table class="table" id="Realres_table">
+                        <thead>
+                        <tr>
+                            <th data-field="ID" data-align="center">ID</th>
+                            <th data-field="Name" data-align="center">Name</th>
+                            <th data-field="Cfg" data-align="center">Config</th>
+                            <th data-field="IP" data-align="center">AgentIP</th>
+                            <th data-field="Status" data-align="center">Status</th>
+                            <th data-field="Action" data-align="center">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="CIResult">
+                    <table class="table" id="CIres_table">
+                        <thead>
+                        <tr>
+                            <th data-field="ID" data-align="center">ID</th>
+                            <th data-field="Name" data-align="center">Name</th>
+                            <th data-field="Cfg" data-align="center">Config</th>
+                            <th data-field="IP" data-align="center">AgentIP</th>
+                            <th data-field="Status" data-align="center">Status</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+
+            <ul id="HistoryTab" class="nav nav-tabs">
+                <li class="active">
+                    <a href="#Log_ResHandleHistory" data-toggle="tab">
+                        历史操作
+                    </a>
+                </li>
+            </ul>
+            <div id="Log_ResHandleHistory">
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+ul.timeline {
+    list-style-type: none;
+    background: url("images/version_line.png") repeat-y scroll 200px 0 transparent;
+    padding: 0;
+}
+
+ul.timeline li {
+    position: relative;
+    margin-bottom: 20px;
+}
+ul.timeline li .time {
+    position: absolute;
+    width: 160px;
+    text-align: right;
+    left: 0;
+    top: 10px;
+    color: #999;
+}
+ul.timeline li .version {
+    position: absolute;
+    width: 290px;
+    text-align: right;
+    left: -200px;
+    top: 30px;
+    font-size: 40px;
+    line-height: 50px;
+    color: #3594cb;
+    overflow: hidden;
+}
+ul.timeline li .number {
+    position: absolute;
+    background: url("images/version_dot.png") no-repeat scroll 0 0 transparent;
+    width: 56px;
+    height: 56px;
+    left: 177px;
+    line-height: 56px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+}
+ul.timeline li.alt .number {
+    background-image: url("images/version_dot_alt.png");
+}
+ul.timeline li .content {
+    margin-left: 260px;
+
+}
+ul.timeline li .content div {
+    background-color: #3594cb;
+    padding: 8px 15px 8px 15px;
+    color: #fff;
+    font-size: 15px;
+    line-height: 20px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px
+
+}

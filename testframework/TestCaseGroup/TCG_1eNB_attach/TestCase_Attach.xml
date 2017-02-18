@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCase name="Attach" tcg_name="TCG_Attach">
+	<SupportEnvironment>0</SupportEnvironment>
+	<AtomAction name="CheckCellStatus">
+		<Property name="CellID" value="254"/>
+		<Property name="Delay" value="100"></Property>
+		<Property name="ExpectResult" value="0"></Property>
+	</AtomAction>
+	<!--AtomAction name="AddUE">
+		<Property name="Delay" value="0"></Property>
+		<Property name="CellID" value="253"></Property>
+		<Property name="UEGroupID" value="1"></Property>
+		<Property name="UENum" value="2"></Property>
+	</AtomAction>
+	<AtomAction name="CheckUECnntState">
+		<Property name="Delay" value="0"></Property>
+		<Property name="UEGroupID" value="1"></Property>
+		<Property name="ExpectResult" value="0"></Property>
+		<Property name="NextAction" value="0"></Property>
+	</AtomAction>
+	<AtomAction name="ULPing">
+		<Property name="Delay" value="1"></Property>
+		<Property name="UEGroupID" value="1"></Property>
+		<Property name="PDNIP" value="192.168.1.124"></Property>
+		<Property name="PacketLen" value="32"></Property>
+		<Property name="Duration" value="10"></Property>
+	</AtomAction>
+	<AtomAction name="CheckPingResult">
+		<Property name="Delay" value="12"></Property>
+		<Property name="UEGroupID" value="1"></Property>
+		<Property name="ExpectResult" value="0"></Property>
+	</AtomAction>
+  <AtomAction name="ULUDP">
+		<Property name="Delay" value="1"></Property>
+		<Property name="UEGroupID" value="1"></Property>
+		<Property name="PDNIP" value="192.168.1.124"></Property>
+		<Property name="BandWitdth" value="32"></Property>
+		<Property name="Duration" value="30"></Property>
+	</AtomAction>
+	<AtomAction name="CheckFlowResult">
+		<Property name="Delay" value="35"></Property>
+		<Property name="UEGroupID" value="1"></Property>
+		<Property name="ULThrput" value="30"></Property>
+		<Property name="DLThrput" value="0"></Property>
+	</AtomAction>
+  <AtomAction name="DLUDP">
+		<Property name="Delay" value="1"></Property>
+		<Property name="UEGroupID" value="1"></Property>
+		<Property name="PDNIP" value="192.168.1.124"></Property>
+		<Property name="BandWitdth" value="32"></Property>
+		<Property name="Duration" value="30"></Property>
+	</AtomAction>
+	<AtomAction name="CheckFlowResult">
+		<Property name="Delay" value="35"></Property>
+		<Property name="UEGroupID" value="1"></Property>
+		<Property name="ULThrput" value="0"></Property>
+		<Property name="DLThrput" value="30"></Property>
+	</AtomAction>
+  <AtomAction name="ULTCP">
+		<Property name="Delay" value="1"></Property>
+		<Property name="UEGroupID" value="1"></Property>
+		<Property name="PDNIP" value="192.168.1.124"></Property>
+		<Property name="BandWitdth" value="32"></Property>
+		<Property name="Duration" value="30"></Property>
+	</AtomAction>
+	<AtomAction name="CheckFlowResult">
+		<Property name="Delay" value="35"></Property>
+		<Property name="UEGroupID" value="1"></Property>
+		<Property name="ULThrput" value="30"></Property>
+		<Property name="DLThrput" value="0"></Property>
+	</AtomAction>
+  <AtomAction name="DLTCP">
+		<Property name="Delay" value="1"></Property>
+		<Property name="UEGroupID" value="1"></Property>
+		<Property name="PDNIP" value="192.168.1.124"></Property>
+		<Property name="BandWitdth" value="32"></Property>
+		<Property name="Duration" value="30"></Property>
+	</AtomAction>
+	<AtomAction name="CheckFlowResult">
+		<Property name="Delay" value="35"></Property>
+		<Property name="UEGroupID" value="1"></Property>
+		<Property name="ULThrput" value="0"></Property>
+		<Property name="DLThrput" value="30"></Property>
+	</AtomAction>
+	<AtomAction name="DelUEGroup">
+		<Property name="Delay" value="10"></Property>
+		<Property name="UEGroupID" value="1"></Property>
+		<Property name="UENum" value="1"></Property>
+	</AtomAction-->
+</TestCase>
+

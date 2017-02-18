@@ -1,0 +1,421 @@
+
+a.label:hover,a.label:focus,a.badge:hover,a.badge:focus{color:#ffffff;text-decoration:none;cursor:pointer;}
+.badge-success{background-color:#468847;}
+.label-important,.badge-important{background-color:#b94a48;}
+.label-important[href],.badge-important[href]{background-color:#953b39;}
+.label-warning,.badge-warning{background-color:#f89406;}
+.label-warning[href],.badge-warning[href]{background-color:#c67605;}
+.label-success,.badge-success{background-color:#468847;}
+.label-success[href],.badge-success[href]{background-color:#356635;}
+.label-info,.badge-info{background-color:#3a87ad;}
+.label-info[href],.badge-info[href]{background-color:#2d6987;}
+.label-inverse,.badge-inverse{background-color:#333333;}
+.label-inverse[href],.badge-inverse[href]{background-color:#1a1a1a;}
+
+.login-page body {
+ /* padding-top: 40px;
+  padding-bottom: 40px;*/
+  margin: 0;
+  height: 100%;
+}
+
+.login-page .login-title{
+  margin-top:7%;
+  margin-bottom:5%;
+  color:#FFF;
+}
+
+.login-page .form-signin {
+  max-width: 320px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #eee;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.login-page .form-signin .form-signin-heading{
+  margin-bottom: 30px;
+}
+.login-page .form-signin input[type="text"],
+.login-page .form-signin input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  padding: 7px 9px;
+}
+
+.login-page .form-signin .input-group{
+  margin-bottom: 15px;
+}
+
+.login-page .login-form {
+  position: absolute;
+  right:10%;
+  top:10%;
+  z-index:999;
+}
+.login-form .row{
+  margin-bottom: 15px;
+}
+.login-form .btn{
+  height:45px;
+  font-family:"Arial";
+  font-size:19px;
+  letter-spacing: 10px;
+}
+
+.login-page .login-content {
+  position: relative;
+  width: 33.33%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 0;
+  transition: all 550ms ease-in-out;
+}
+
+input{
+  color: #000000;
+}
+
+#error-container .login-error{
+  color: #FF0000;
+  font-size: 20px;
+}
+
+.login-page .login-form .input-group .form-control{
+  height:45px;
+}
+
+
+.home-page,.TestCaseGrp,.UserManage,.RealResManage,.RealTimeInfo{
+  margin-top:15px;
+  font-family: "宋体,微软雅黑,Arial,Verdana,arial,serif";
+}
+
+.home-page .nav-tabs{
+  margin-top:30px;
+  margin-bottom: 15px;
+}
+.home-page #MainResContainer {
+  margin-bottom: 0;
+}
+.home-page #MainRes .list-group-item:first-child{
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.home-page #MainRes .list-group-item:last-child{
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.home-page #MainResContainer .list-group-item:last-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.home-page #MainRes .list-group{
+  margin-bottom:0;
+}
+.home-page #Log_ResHandleHistory{
+  margin-bottom:30px;
+}
+.home-page #Log_ResHandleHistory .codepath{
+  word-wrap: break-word;
+}
+.home-page #TaskInfoList .codepath{
+  max-width: 400px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.home-page .nav-tabs .active{
+  font-weight: bold;
+}
+
+.home-page nav .dropdown-menu{
+  min-width: 107px;
+}
+
+.home-page .progress{
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.home-page .btn-block{
+    margin-top: 10px;
+}
+.home-page #UploadFile+p {
+  margin-top: 10px;
+}
+.home-page #lte_app > span{
+  margin-left: 4px;
+  font-size: 15px;
+}
+.home-page #lte_db>span{
+  margin-left: 4px;
+  font-size: 16px;
+}
+.home-page #bin>span{
+  margin-left: 4px;
+  font-size: 16px;
+}
+.home-page #VerSelectSection .panel-body #FileUploadSection blockquote p{
+  font-family: "华文楷体";
+}
+.home-page .jumbotron{
+  padding: 20px 0 20px 60px;
+}
+
+.home-page .page-header{
+  margin: 0;
+}
+.home-page .jumbotron h1{
+  font-family: "华文楷体";
+  font-size:40px;
+  margin-top:5px;
+}
+
+.home-page #TestCaseGrpSection_body .form-group{
+  margin-bottom:0;
+}
+
+.home-page table a.btn{
+  margin-right: 7px;
+}
+.home-page .TaskContent{
+  width: 1380px;
+}
+.home-page .TaskContent .CellBasicInfo .col-md-3{
+  width: 20%;
+}
+.home-page .TaskContent .CellBasicInfo .col-md-4{
+  width: 25%;
+}
+.home-page  #EISection .CellBasicInfo{
+  width: 63.5%;
+  padding: 0;
+}
+.home-page  #EISection .CellChart{
+  width: 36.5%;
+}
+.home-page  #EISection .EiChartSection{
+  padding: 0 0 38px 0;
+}
+.home-page  #EISection .EiChartSection:last-child{
+  padding-bottom: 0;
+}
+.home-page  #EISection .Selection{
+  padding: 0;
+}
+.home-page  #EISection .Selection .SelectItem:first-child{
+  padding: 0 60px 0 0;
+}
+.home-page  #EISection .Selection .SelectItem{
+  padding: 0 0 0 40px;
+}
+.home-page  #EISection .EI_GeneralConfig,.EI_GeneralState,.EI_DetailStateUl,.EI_DetailStateDl,.EI_UEInfo{
+  margin-top: 30px;
+}
+.home-page  #EISection .EI_GeneralConfig .input-group-addon{
+  min-width: 83px;
+  height: 28px;
+  padding: 0;
+  background-color: #fee;
+  border-radius:0;
+}
+.home-page  #EISection .EI_GeneralConfig .MaxLenAddon{
+  min-width: 83px;
+  padding:0 6px 0 6px;
+}
+.home-page  #EISection .EI_GeneralConfig input{
+  height:28px;
+  padding-left: 5px;
+  border-radius:0;
+}
+
+.home-page  #EISection .EI_GeneralConfig .MaxLenInput{
+  padding: 0;
+}
+
+.home-page  #EISection .EI_GeneralConfig .col-md-3{
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.home-page  #EISection .EI_GeneralState .col-md-3{
+  margin-top: 0;
+  padding-left: 0;
+}
+.home-page  #EISection .EI_GeneralState .input-group-addon{
+  height: 28px;
+  min-width: 83px;
+  padding: 0 6px 0 6px;
+  background-color: #fee;
+  border-radius:0;
+}
+.home-page  #EISection .EI_GeneralState .MaxLenAddon{
+  min-width: 78px;
+}
+.home-page  #EISection .EI_GeneralState input{
+  height:28px;
+  padding-left: 5px;
+  border-radius:0;
+}
+
+.home-page  #EISection .EI_GeneralState .MaxLenInput{
+  padding: 5px;
+}
+
+.home-page  #EISection .EI_DetailStateUl .col-md-4{
+  margin-top: 0;
+  padding-left: 0;
+}
+.home-page  #EISection .EI_DetailStateUl .input-group-addon{
+  height: 28px;
+  min-width: 125px;
+  padding: 0;
+  background-color: #fee;
+  border-radius:0;
+}
+.home-page  #EISection .EI_DetailStateUl .MaxLenAddon{
+  min-width: 100px;
+  padding: 6px;
+}
+.home-page  #EISection .EI_DetailStateUl input{
+  height:28px;
+  border-radius:0;
+}
+
+.home-page  #EISection .EI_DetailStateUl .MaxLenInput{
+  padding: 0 2px 0 2px;
+}
+
+.home-page  #EISection .EI_DetailStateDl .col-md-4{
+  margin-top: 0;
+  padding-left: 0;
+}
+.home-page  #EISection .EI_DetailStateDl .input-group-addon{
+  height: 28px;
+  min-width: 125px;
+  padding: 0;
+  background-color: #fee;
+  border-radius:0;
+}
+.home-page  #EISection .EI_DetailStateDl .MaxLenAddon{
+  min-width: 100px;
+  padding: 6px;
+}
+.home-page  #EISection .EI_DetailStateDl input{
+  height:28px;
+  border-radius:0;
+}
+
+.home-page  #EISection .EI_DetailStateDl .MaxLenInput{
+  padding: 0 2px 0 2px;
+}
+
+.home-page  #UserCfg .UserCfgtd{
+  word-wrap: break-word;
+}
+
+.home-page  #EISection #CellSelector{
+
+}
+.home-page  #EISection #UEInfoTable th{
+  font-weight: 100;
+  font-size: 11px;
+}
+.home-page  #EISection #UEInfoTable th .th-inner{
+  padding: 8px 3px 8px 3px;
+}
+.home-page #EiInfo .col-md-4{
+  padding: 0;
+}
+.home-page #EiInfo p{
+  margin: 0 0 0 47px;
+}
+.Level3{
+  margin-left: 15px;
+  background: #faf2cc;
+}
+
+.TestCaseGrp nav .dropdown-menu{
+  min-width: 107px;
+}
+
+.TestCaseGrp .TestCasesPanel{
+  margin-top: 8px;
+}
+
+.TestCaseGrp .TestCasesPanel .panel-body .center-block{
+  width: 78.3%;
+}
+.TestCaseGrp .TestCasesPanel #panel_AtomList .panel-body .panel-AtomItem{
+  width: 100%;
+}
+.TestCaseGrp .TestCasesPanel #panel_AtomList .DetailIcon{
+  font-size: 14px;
+}
+.TestCaseGrp #TestCaseManageTabHomepage{
+   margin-top: 30px;
+}
+
+.TestCaseGrp .ui-draggable a span{
+  white-space: normal;
+}
+
+.TestCaseGrp .TestCasesPanel .panel-body li{
+  list-style-type:none;
+}
+
+.TestCaseGrp .TestCasesPanel .panel-body .dropdown-menu{
+  left: 77px;
+}
+
+.TestCaseGrp input.UserVerifyError {
+  border-color: #c9302c;
+}
+
+.TestCaseGrp label.UserVerifyError {
+  color: #FF0000;
+  font-size: 15px;
+}
+.TestCaseGrp .update{
+  margin-right: 7px;
+}
+.UserManage nav .dropdown-menu{
+  min-width: 107px;
+}
+
+.UserManage label.UserVerifyError {
+  color: #FF0000;
+  font-size: 15px;
+}
+
+.UserManage input.UserVerifyError {
+  border-color: #c9302c;
+}
+
+.UserManage .update{
+  margin-right: 7px;
+}
+
+.RealResManage .table .detail-view .panel-default>.panel-heading span.EnbInfoPara {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.RealResManage .table .detail-view .panel-default>.panel-heading span.EnbInfoDetail {
+  font-size: 14px;
+}
+.RealTimeInfo .list-group-item small{
+  margin: 0 40px 0 5px;
+}
+
+.RealTimeInfo .list-group-item a{
+  margin-left: 10px;
+}
+
+.RealTimeInfo .EnbInfoListContent{
+  margin-top: 30px;
+}

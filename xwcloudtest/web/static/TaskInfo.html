@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>信威云测试平台</title>
+  <link rel="stylesheet" href='css/bootstrap.min.css'>
+  <link rel="stylesheet" href="css/style.css" media="screen">
+  <link rel="stylesheet" href="css/tinyscrollbar.css" media="screen">
+  <link rel="stylesheet" href="css/imagepanner.css" media="screen">
+  <link rel="stylesheet" href='css/font-awesome.css'>
+  <script src="js/lib/require.js"></script>
+  <script>
+    requirejs(['./js/commoncfg'], function (common) {
+      requirejs(['app/TaskInfo']);
+    });
+  </script>
+</head>
+
+<body class="home-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-inverse" role="navigation">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="homepage.html">CloudTestPlatform</a>
+          </div>
+          <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="LogoutPanel">
+                <span></span>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" id="logout">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div>
+            <ul class="nav navbar-nav">
+              <li><a href="homepage.html">首页</a></li>
+              <li><a href="TestCaseManage.html">测试用例管理</a></li>
+              <li><a href="RealTimeInfo.html">小区信息</a></li>
+              <li><a href="SystemManage.html">系统配置</a></li>
+            </ul>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="page-header"><h2>任务相关信息</h2></div>
+          </div>
+          <div class="col-md-6">
+            <ul class="list-group" id="TaskInfoList">
+              <li class="list-group-item active">任务信息<span class="badge"></span></li>
+              <li class="list-group-item" id="CreateUsr">创建者<span class="badge"></span></li>
+              <li class="list-group-item" id="CreateTime">创建时间<span class="badge"></span></li>
+              <li class="list-group-item" id="TaskId">任务ID<span class="badge"></span></li>
+              <li class="list-group-item" id="ExecResult">执行结果<span class="badge badge-success"></span></li>
+              <li class="list-group-item" id="RunTime">运行时间<span class="badge"></span></li>
+              <li class="list-group-item" id="TaskStatus"><span class="badge"></span>任务状态</li>
+              <li class="list-group-item" id="ExecTestGrp"><span class="badge"></span>执行用例组名称</li>
+              <li class="list-group-item">
+                日志下载
+                <a class="badge badge-info pull-right" href="#" id="LogDownload">下载</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="list-group" id="DevInfoList">
+              <li class="list-group-item active">设备信息</li>
+              <div class="panel-group" id="MainResContainer">
+                <div data-toggle="popover" data-placement="left" data-content="点击查看更多主设备信息">
+                  <a class="list-group-item" data-toggle="collapse" data-parent="#MainResContainer"
+                       href="#MainRes" id="MajorId">
+                      主设备号
+                      <span class="badge"></span>
+                  </a>
+                </div>
+                <div id="MainRes" class="panel-collapse collapse">
+                  <ul class="list-group">
+                    <li class="list-group-item" id="Env">运行环境<span class="badge"></span></li>
+                    <li class="list-group-item" id="IPAddr">IP地址<span class="badge"></span></li>
+                    <li class="list-group-item" id="Desc"><span class="badge"></span>描述</li>
+                    <li class="list-group-item" id="MajorName"><span class="badge"></span>名称</li>
+                    <li class="list-group-item" id="CPUCost"><span class="badge"></span>CPU占用率</li>
+                    <li class="list-group-item" id="MemCost"><span class="badge"></span>内存占用率</li>
+                    <li class="list-group-item" id="PowerOnTime"><span class="badge"></span>上电时间</li>
+                    <li class="list-group-item" id="HostName"><span class="badge"></span>主机名称</li>
+                    <li class="list-group-item" id="OpeType"><span class="badge"></span>操作系统类型</li>
+                    <li class="list-group-item" id="RegisterTime"><span class="badge"></span>注册时间</li>
+                    <li class="list-group-item" id="MajorStatus"><span class="badge"></span>设备状态</li>
+                  </ul>
+                </div>
+              </div>
+                <li class="list-group-item" id="MinorId"><span class="badge"></span>从设备号</li>
+                <li class="list-group-item" id="EnbID"><span class="badge"></span>基站ID</li>
+                <li class="list-group-item" id="EnbName"><span class="badge"></span>基站名称</li>
+                <li class="list-group-item" id="EpcIp"><span class="badge"></span>核心网IP</li>
+                <li class="list-group-item" id="LocalIp"><span class="badge"></span>本地IP</li>
+                <li class="list-group-item" id="PdnIp"><span class="badge"></span>PdnIP</li>
+                <li class="list-group-item" id="MinorStatus"><span class="badge"></span>状态</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <ul id="TaskInfoTab" class="nav nav-tabs">
+              <li class="active"><a href="#Log_TaskStatus" data-toggle="tab">LogSession</a></li>
+              <li><a href="#EiInfo" data-toggle="tab">EI_Info</a></li>
+            </ul>
+            <div id="TestCaseManageContent" class="tab-content">
+              <div class="tab-pane fade" id="EiInfo">
+
+              </div>
+              <div class="tab-pane fade well in active" id="Log_TaskStatus">
+                  <div class="scrollbar">
+                    <div class="track">
+                      <div class="thumb">
+                        <div class="end"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="viewport">
+                    <div class="overview" id="Log_TaskStatusContent">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+    </div>
+   </div>
+  </div>
+
+
+  
+       
+</body>
+</html>

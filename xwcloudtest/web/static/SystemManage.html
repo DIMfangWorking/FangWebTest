@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>信威云测试平台</title>
+  <link rel="stylesheet" href='css/bootstrap.min.css'>
+  <link rel="stylesheet" href="css/style.css" media="screen">
+  <link rel="stylesheet" href="css/jquery-ui.min.css" media="screen">
+  <link rel="stylesheet" href='css/bootstrap-table.css'>
+  <link rel="stylesheet" href='css/jsgrid.min.css'>
+  <link rel="stylesheet" href='css/jsgrid-theme.min.css'>
+  <link rel="stylesheet" href="css/bootstrap-tokenfield.css" media="screen">
+  <link rel="stylesheet" href="css/tokenfield-typeahead.css" media="screen">
+
+  <script src="js/lib/require.js"></script>
+  <script>
+    requirejs(['./js/commoncfg'], function (common) {
+      requirejs(['app/SystemManage']);
+    });
+  </script>
+  <script>
+    function actionFormatter(value) {
+      return [
+        '<a class="update jsgrid" href="javascript:" title="Update Item"><input class="jsgrid-button jsgrid-edit-button" type="button" title="Edit"></a>',
+        '<a class="remove jsgrid" href="javascript:" title="Delete Item"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Remove"></a>'
+      ].join('');
+    }
+  </script>
+</head>
+
+<body class="home-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-inverse" role="navigation">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="homepage.html">CloudTestPlatform</a>
+          </div>
+          <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="LogoutPanel">
+                <span></span>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#" id="logout">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div>
+            <ul class="nav navbar-nav">
+              <li><a href="homepage.html">首页</a></li>
+              <li><a href="TestCaseManage.html">测试用例管理</a></li>
+              <li><a href="RealTimeInfo.html">小区信息</a></li>
+              <li class="active"><a href="SystemManage.html">系统配置</a></li>
+            </ul>
+
+          </div>
+        </nav>
+
+      </div>
+    </div>
+    <div class="row" id="TaskSelectSection" >
+      <div class="col-md-3">
+        <div class="panel panel-primary" id="VerSelectSection">
+          <div class="panel-heading">
+            <h3 class="panel-title">Xml上传</h3>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <select class="form-control" id="XmlType">
+                <option value="" disabled selected hidden>请选择要上传的xml类型</option>
+                <option>EIXml</option>
+                <option>XtraceXml</option>
+              </select>
+            </div>
+            <div id="FileUploadSection" hidden>
+              <blockquote>
+                <p class="text-info"></p>
+              </blockquote>
+              <input id="UploadFile" type="file" name="files[]" data-url="/upload" multiple>
+              <div class = "progress progress-striped" id="UploadFile_progress" style="display: none">
+                <div class="progress-bar progress-bar-success" role="progressbar" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="panel panel-primary" >
+          <div class="panel-heading">
+            <h3 class="panel-title">CI配置</h3>
+          </div>
+          <div class="panel-body">
+            <a class="create btn btn-default jsgrid" href="javascript:" id="Create">
+              <input class="jsgrid-button jsgrid-insert-button" type="button" title="创建">
+            </a>
+            <table class="table table-striped table-hover" id="SvnSection" data-toggle="table"
+                   data-unique-id="ID" data-page-size="10">
+              <thead>
+              <tr>
+                <th data-field="ID">ID</th>
+                <th data-field="Usr">User</th>
+                <th data-field="AnotherName">AnotherName</th>
+                <th data-field="VerType">VerType</th>
+                <th data-field="EnvType">EnvType</th>
+                <th data-field="TestGrp">TestGrp</th>
+                <th data-field="EmailList">EmailList</th>
+                <th data-field="EmailTotal" data-visible="false"></th>
+                <th data-field="action"
+                    data-align="center"
+                    data-formatter="actionFormatter"
+                    data-events="actionEvents">Action</th>
+              </tr>
+              </thead>
+              <tbody></tbody><tfoot></tfoot>
+            </table>
+            <div class="modal fade" id="SvnCfgModal" role="dialog" aria-labelledby="SvnCfgModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                      ×
+                    </button>
+                    <h4 class="modal-title" id="UserModalTitle">CISvn配置</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="CI_SvnForm">
+                      <div class="form-group">
+                        <label for="Usr" class="col-sm-3 control-label">用户名</label>
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" name="username" id="Usr" placeholder="请输入用户名">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="password" class="col-sm-3 control-label">密码</label>
+                        <div class="col-sm-5">
+                          <input type="password" class="form-control" name="password" id="password" placeholder="请输入密码">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="AnotherName" class="col-sm-3 control-label">AnotherName</label>
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" name="username" id="AnotherName" placeholder="请输入AnotherName">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="EnvType" class="col-sm-3 control-label">环境类型</label>
+                        <div class="col-sm-5">
+                          <select class="form-control" id="EnvType" name="envtype">
+                            <option value="default" disabled selected hidden>请输入版本类型</option>
+                            <option value="real">真实环境</option>
+                            <option value="simulation">模拟环境</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="TestGrp" class="col-sm-3 control-label">用例组</label>
+                        <div class="col-sm-5">
+                          <select class="form-control" id="TestGrp" name="testgrp">
+                            <option value="default" disabled selected hidden>请选择用例组</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="VerType" class="col-sm-3 control-label">版本类型</label>
+                        <div class="col-sm-5">
+                          <select class="form-control" id="VerType" name="vertype">
+                            <option value="default" disabled selected hidden>请输入版本类型</option>
+                            <option value="LTE">LTE</option>
+                            <option value="MESH">MESH</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="EmailTotal" class="col-sm-3 control-label">邮件列表</label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" name="EmailTotal" id="EmailTotal" value="" placeholder="请输入通知用户" />
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                      关闭
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="SavCfg">
+                      提交
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" >
+      <div class="col-md-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Email服务管理</h3>
+          </div>
+          <div class="panel-body">
+            <div id="EmailManager">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row" >
+      <div class="col-md-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">用户管理配置管理</h3>
+          </div>
+          <div class="panel-body">
+            <div id="UserCfg">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  
+       
+</body>
+</html>
